@@ -1,0 +1,42 @@
+<div class="bg-gradient-to-br from-indigo-800 to-indigo-900 rounded-xl shadow-sm p-6 text-white text-center">
+  <!-- Apple Logo -->
+  <div class="mb-3">
+    <svg class="w-8 h-8 mx-auto" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.0468 12.0001C17.0423 10.6196 17.5333 9.25914 18.4444 8.14821C17.5522 6.91582 16.1522 6.21226 14.6444 6.23821C13.0379 6.06711 11.4611 7.24258 10.6379 7.24258C9.79778 7.24258 8.50111 6.25914 7.16 6.29821C5.42667 6.33914 3.87556 7.29258 3.02667 8.86164C1.21778 12.0392 2.58667 16.7044 4.31556 19.2044C5.17778 20.4294 6.19556 21.8044 7.53778 21.7392C8.84 21.6669 9.31556 20.8694 10.8889 20.8694C12.4444 20.8694 12.8889 21.7392 14.2667 21.7001C15.6889 21.6669 16.5689 20.4478 17.4 19.2087C18.0111 18.3305 18.4889 17.3478 18.8222 16.3001C17.6889 15.8087 17.0468 13.9696 17.0468 12.0001Z" fill="white"/>
+      <path d="M14.0978 4.38222C14.8311 3.49778 15.1756 2.34222 15.0667 1.16888C13.9289 1.30222 12.8889 1.86222 12.1556 2.74666C11.4356 3.60888 11.0756 4.74666 11.1778 5.89333C12.3156 5.90222 13.3644 5.36888 14.0978 4.38222Z" fill="white"/>
+    </svg>
+  </div>
+  
+  <!-- Watch Title -->
+  <h3 class="text-xl font-semibold mb-1">WATCH <span class="font-normal">SERIES 7</span></h3>
+  
+  <!-- Tagline -->
+  <p class="text-sm mb-4 leading-snug">Heavy on Features.<br>Light on Price.</p>
+  
+  <!-- Price -->
+  <div class="mb-4 text-sm">
+    Only for: <span class="text-yellow-300 font-semibold text-lg">$299 USD</span>
+  </div>
+  
+  <!-- Add to Cart Button -->
+  <button 
+    (click)="addToCart()" 
+    class="w-full bg-yellow-400 text-gray-800 font-medium py-2 px-4 rounded-lg flex items-center justify-center mb-2 hover:bg-yellow-300 transition-colors"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+    </svg>
+    THÊM VÀO GIỎ HÀNG
+  </button>
+  
+  <!-- View Details Button -->
+  <button 
+    (click)="viewDetails()" 
+    class="w-full border border-white text-white font-medium py-2 px-4 rounded-lg flex items-center justify-center hover:bg-white/10 transition-colors"
+  >
+    XEM CHI TIẾT
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+    </svg>
+  </button>
+</div>

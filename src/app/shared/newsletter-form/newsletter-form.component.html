@@ -1,0 +1,15 @@
+<form [formGroup]="newsletterForm" (ngSubmit)="onSubmit()" class="flex w-full max-w-sm mx-auto">
+  <input
+    type="email"
+    formControlName="email"
+    placeholder="Your email address"
+    class="rounded-r-none bg-white/10 border-white/20 text-white placeholder:text-white/60 w-full py-2 px-3"
+  />
+  <button 
+    type="submit" 
+    class="rounded-l-none bg-white text-purple-900 hover:bg-gray-100 px-4 py-2"
+    [disabled]="newsletterForm.invalid"
+  >
+    Subscribe
+  </button>
+</form>

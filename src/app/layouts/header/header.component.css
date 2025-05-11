@@ -1,0 +1,7 @@
+/* Smooth opening of the mobile menu */
+@media (max-width: 768px) {
+    nav a {
+      transition: all 0.3s ease-in-out;
+    }
+  }
+  

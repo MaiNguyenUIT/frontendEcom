@@ -1,0 +1,18 @@
+<div [ngClass]="[bgColor, textColor]" class="p-8 rounded-lg relative overflow-hidden">
+  <div class="relative z-10">
+    <p class="text-sm mb-2">{{title}}</p>
+    <h3 class="text-2xl font-bold mb-1">{{subtitle}}</h3>
+    <p class="text-sm mb-6">{{description}}</p>
+    <button 
+      [ngClass]="textColor === 'text-white' ? 
+        'border border-white hover:bg-white/20 text-white' : 
+        'bg-purple-800 hover:bg-purple-900 text-white'"
+      class="px-4 py-2 rounded-none"
+    >
+      {{buttonText}}
+    </button>
+  </div>
+  <div *ngIf="showCircleButton" class="absolute bottom-4 right-4 bg-blue-500 text-white rounded-full w-10 h-10 flex items-center justify-center">
+    <span class="text-xs">NEW</span>
+  </div>
+</div>

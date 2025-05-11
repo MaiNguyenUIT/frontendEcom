@@ -1,0 +1,83 @@
+<div class="bg-gray-50 min-h-screen">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="flex flex-col lg:flex-row gap-8">
+      <!-- Sidebar -->
+      <div class="w-full lg:w-64 flex-shrink-0 space-y-8">
+        <!-- Categories -->
+        <div class="bg-white rounded-xl shadow-sm p-6">
+          <h2 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-indigo-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            DANH MỤC
+          </h2>
+          <app-category-sidebar 
+            [categories]="categories"
+            (categorySelect)="onCategoryChange($event)">
+          </app-category-sidebar>
+        </div>
+        
+        <!-- Price Range -->
+        <div class="bg-white rounded-xl shadow-sm p-6">
+          <h2 class="text-lg font-semibold text-gray-800 mb-4 flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-indigo-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="1" x2="12" y2="23"></line>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+            </svg>
+            PHẠM VI GIÁ
+          </h2>
+          <app-price-range-slider
+            [initialMin]="priceRange.min"
+            [initialMax]="priceRange.max"
+            (rangeChange)="onPriceRangeChange($event)">
+          </app-price-range-slider>
+        </div>
+        
+        <!-- Promo Card -->
+        <app-promo-card></app-promo-card>
+      </div>
+      
+      <!-- Main Content -->
+      <div class="flex-1">
+        <!-- Search and Sort Bar -->
+        <div class="bg-white rounded-xl shadow-sm p-4 mb-6">
+          <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+            <app-search-bar 
+              [query]="searchQuery"
+              (searchChange)="onSearchChange($event)">
+            </app-search-bar>
+            
+            <div class="flex items-center gap-4">
+              <span class="text-sm text-gray-500">{{ totalProducts }} Results found.</span>
+              <app-sort-selector
+                [options]="sortOptions"
+                [selected]="selectedSort"
+                (sortChange)="onSortChange($event)">
+              </app-sort-selector>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Products Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <app-product-card 
+            *ngFor="let product of products" 
+            [product]="product">
+          </app-product-card>
+        </div>
+        
+        <!-- Pagination -->
+        <div class="mt-10">
+          <app-pagination
+            [currentPage]="currentPage"
+            [totalPages]="6"
+            (pageChange)="onPageChange($event)">
+          </app-pagination>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

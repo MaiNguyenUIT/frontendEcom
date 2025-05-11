@@ -1,0 +1,29 @@
+<form [formGroup]="priceForm" class="space-y-4">
+  <div class="flex items-center gap-4">
+    <div class="flex-1">
+      <label class="block text-xs text-gray-500 mb-1">Min price</label>
+      <div class="relative">
+        <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">$</span>
+        <input type="number" formControlName="minPrice" min="0" [max]="max"
+               class="w-full pl-7 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm">
+      </div>
+    </div>
+    <div class="flex-1">
+      <label class="block text-xs text-gray-500 mb-1">Max price</label>
+      <div class="relative">
+        <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">$</span>
+        <input type="number" formControlName="maxPrice" [min]="min" [max]="max"
+               class="w-full pl-7 pr-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-sm">
+      </div>
+    </div>
+  </div>
+  
+  <div class="pt-2">
+    <div class="h-2 bg-gray-200 rounded-full">
+      <div class="h-full bg-indigo-600 rounded-full"
+           [style.width.%]="((priceForm.value.maxPrice - priceForm.value.minPrice) / (max - min)) * 100"
+           [style.margin-left.%]="(priceForm.value.minPrice / max) * 100">
+      </div>
+    </div>
+  </div>
+</form>

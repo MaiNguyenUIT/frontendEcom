@@ -1,0 +1,260 @@
+<main>
+  <!-- Hero Section -->
+  <section class="container mx-auto px-4 py-8 grid md:grid-cols-3 gap-6">
+    <div class="md:col-span-2 bg-gray-100 rounded-lg p-8 relative flex flex-col justify-center">
+      <div class="max-w-md">
+        <h5 class="text-sm text-gray-600 mb-2">Sản phẩm nổi bật nhất</h5>
+        <h1 class="text-4xl font-bold mb-2">Arduino</h1>
+        <p class="text-gray-700 mb-4">Bộ điều khiển vi mạch</p>
+        <button class="bg-purple-800 hover:bg-purple-900 text-white rounded-none px-4 py-2 flex items-center">
+          <span>XEM NGAY</span>
+          <i class="ml-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </i>
+        </button>
+      </div>
+      <div class="absolute right-10 top-1/2 -translate-y-1/2">
+        <div class="relative">
+          <img src="/assets/placeholder.svg" alt="Arduino Board" class="object-contain w-[200px] h-[200px]">
+          <div class="absolute -top-4 -right-4 bg-purple-500 text-white rounded-full w-16 h-16 flex items-center justify-center text-sm font-medium">
+            300 POINT
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col gap-4">
+      <div class="bg-purple-800 text-white p-6 rounded-lg">
+        <div class="mb-2 text-xs">BEST SELLER</div>
+        <h3 class="text-xl font-bold mb-1">Hub USB</h3>
+        <p class="text-xs mb-4">NGAY BÂY GIỜ</p>
+        <button class="border border-white hover:bg-purple-700 text-white rounded-none text-xs px-3 py-1">
+          XEM NGAY
+        </button>
+      </div>
+      <div class="bg-gray-100 p-6 rounded-lg">
+        <h3 class="text-xl font-bold mb-1">Chỉ dẫn</h3>
+        <p class="text-blue-500 text-sm mb-4">ARDUINO</p>
+        <button class="bg-purple-800 hover:bg-purple-900 text-white rounded-none text-xs px-3 py-1">
+          XEM NGAY
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="container mx-auto px-4 py-6 grid grid-cols-1 md:grid-cols-4 gap-6">
+    <div class="flex items-start gap-3">
+      <div class="bg-gray-100 p-2 rounded-lg">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="24" height="24" rx="4" fill="#F3F4F6" />
+          <path d="M12 6V18M6 12H18" stroke="#4B5563" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </div>
+      <div>
+        <h3 class="font-medium text-sm">GIAO HÀNG TOÀN QUỐC</h3>
+        <p class="text-xs text-gray-500">Miễn phí vận chuyển đơn hàng từ 500k</p>
+      </div>
+    </div>
+    <div class="flex items-start gap-3">
+      <div class="bg-gray-100 p-2 rounded-lg">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="24" height="24" rx="4" fill="#F3F4F6" />
+          <path d="M8 12H16M12 8V16" stroke="#4B5563" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </div>
+      <div>
+        <h3 class="font-medium text-sm">SẢN PHẨM ĐỔI MỚI</h3>
+        <p class="text-xs text-gray-500">Đổi mới trong vòng 7 ngày</p>
+      </div>
+    </div>
+    <div class="flex items-start gap-3">
+      <div class="bg-gray-100 p-2 rounded-lg">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="24" height="24" rx="4" fill="#F3F4F6" />
+          <path d="M12 6V18M6 12H18" stroke="#4B5563" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </div>
+      <div>
+        <h3 class="font-medium text-sm">THANH TOÁN ĐA DẠNG</h3>
+        <p class="text-xs text-gray-500">Thanh toán khi nhận hàng hoặc qua thẻ</p>
+      </div>
+    </div>
+    <div class="flex items-start gap-3">
+      <div class="bg-gray-100 p-2 rounded-lg">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="24" height="24" rx="4" fill="#F3F4F6" />
+          <path d="M12 6V18M6 12H18" stroke="#4B5563" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </div>
+      <div>
+        <h3 class="font-medium text-sm">HỖ TRỢ 24/7</h3>
+        <p class="text-xs text-gray-500">Tư vấn và hỗ trợ miễn phí</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular Products -->
+  <section class="container mx-auto px-4 py-8">
+    <h2 class="text-xl font-bold mb-6">Dành cho bạn</h2>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+      <app-product-card 
+        *ngFor="let product of featuredProducts"
+       [product]="product"
+      ></app-product-card>
+    </div>
+  </section>
+
+  <!-- Product Categories -->
+  <section class="container mx-auto px-4 py-8">
+    <h2 class="text-xl font-bold mb-6 text-center uppercase">Danh mục sản phẩm</h2>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+      <app-category-card
+        *ngFor="let category of categories"
+        [image]="category.image"
+        [name]="category.name"
+      ></app-category-card>
+    </div>
+  </section>
+
+  <!-- Promo Banners -->
+  <section class="container mx-auto px-4 py-8 grid md:grid-cols-2 gap-6">
+    <app-promo-banner
+      title="Cảm biến độc đồ"
+      subtitle="Vòng cảm ứng"
+      description="giá thế hệ mới"
+      bgColor="bg-purple-800"
+      textColor="text-white"
+      buttonText="XEM NGAY"
+    ></app-promo-banner>
+    <app-promo-banner
+      title="TRUYỀN DỮ LIỆU"
+      subtitle="Vòng cảm ứng"
+      description=""
+      bgColor="bg-blue-400"
+      textColor="text-white"
+      buttonText="XEM NGAY"
+      [showCircleButton]="true"
+    ></app-promo-banner>
+  </section>
+
+  <!-- Hot Products -->
+  <section class="container mx-auto px-4 py-8">
+    <h2 class="text-xl font-bold mb-6">Sản phẩm hot</h2>
+
+    <!-- Discount Banner -->
+    <div class="bg-purple-200 p-6 mb-8 rounded-lg">
+      <div class="flex flex-col md:flex-row items-center justify-between">
+        <div>
+          <p class="text-sm text-purple-800 mb-1">COMPUTER & ACCESSORIES</p>
+          <h3 class="text-2xl font-bold text-purple-900 mb-1">32% Discount</h3>
+          <p class="text-sm text-purple-800 mb-4">For all electronic items</p>
+          <p class="text-xs text-purple-700 mb-2">PROMOTION CODE:</p>
+          <p class="text-sm font-bold text-purple-900 mb-4">DGMIVE CHRISTMAS</p>
+          <button class="bg-purple-800 hover:bg-purple-900 text-white rounded-none px-4 py-2">SHOP NOW</button>
+        </div>
+        <div class="mt-6 md:mt-0">
+          <img src="/assets/placeholder.svg" alt="Discount product" class="object-contain w-[150px] h-[150px]">
+        </div>
+      </div>
+    </div>
+
+    <!-- Product Categories -->
+    <div class="flex flex-wrap gap-2 mb-6">
+      <button class="rounded-full text-xs bg-red-500 text-white border-red-500 hover:bg-red-600 px-3 py-1">
+        All Product
+      </button>
+      <button class="rounded-full text-xs border border-gray-300 px-3 py-1 hover:bg-gray-100">
+        Arduino
+      </button>
+      <button class="rounded-full text-xs border border-gray-300 px-3 py-1 hover:bg-gray-100">
+        Sensors
+      </button>
+      <button class="rounded-full text-xs border border-gray-300 px-3 py-1 hover:bg-gray-100">
+        LCD/LED
+      </button>
+      <button class="rounded-full text-xs border border-gray-300 px-3 py-1 hover:bg-gray-100">
+        Module Boards
+      </button>
+      <button class="rounded-full text-xs border border-gray-300 px-3 py-1 hover:bg-gray-100">
+        Cables
+      </button>
+    </div>
+
+    <!-- Products Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <app-product-card 
+        *ngFor="let product of hotProducts"
+        [product]="product"
+      ></app-product-card>
+    </div>
+  </section>
+
+  <!-- More Promo Banners -->
+  <section class="container mx-auto px-4 py-8 grid md:grid-cols-2 gap-6">
+    <app-promo-banner
+      title="PRODUCT SALE 50%"
+      subtitle="Board Arduino"
+      description="Nano 3.0"
+      bgColor="bg-blue-400"
+      textColor="text-white"
+      buttonText="MUA NGAY"
+      [showCircleButton]="true"
+    ></app-promo-banner>
+    <app-promo-banner
+      title="PRODUCT SALE 30%"
+      subtitle="Đồng hồ đo Áp DC"
+      description="2 Dây 2.7-32VDC"
+      bgColor="bg-yellow-400"
+      textColor="text-black"
+      buttonText="MUA NGAY"
+      [showCircleButton]="true"
+    ></app-promo-banner>
+  </section>
+
+  <!-- Cable Promo -->
+  <section class="container mx-auto px-4 py-8">
+    <div class="bg-purple-200 rounded-lg p-8 flex flex-col md:flex-row items-center justify-between">
+      <div>
+        <p class="text-sm text-purple-800 mb-1">GIẢM GIÁ 20% HÔM NAY</p>
+        <h3 class="text-3xl font-bold text-purple-900 mb-4">Dây chuyền</h3>
+        <p class="text-sm text-purple-800 mb-6">Dây chuyền bán tự động</p>
+        <button class="bg-purple-800 hover:bg-purple-900 text-white rounded-none px-4 py-2">MUA NGAY</button>
+      </div>
+      <div class="mt-6 md:mt-0 relative">
+        <img src="/assets/placeholder.svg" alt="USB Cable" class="object-contain w-[200px] h-[200px]">
+        <div class="absolute top-0 right-0 bg-orange-500 text-white rounded-full w-12 h-12 flex items-center justify-center text-sm font-medium">
+          GIẢM
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="container mx-auto px-4 py-8">
+    <div class="bg-purple-900 text-white p-6 rounded-lg">
+      <div class="text-center max-w-xl mx-auto py-4">
+        <h3 class="text-xl font-medium mb-2">Subscribe Our Newsletter</h3>
+        <p class="text-sm mb-6">Get 25% Off First Purchase!</p>
+        <app-newsletter-form></app-newsletter-form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Thank You Section -->
+  <section class="container mx-auto px-4 py-8 grid md:grid-cols-2 gap-6">
+    <div class="bg-purple-900 text-white p-8 rounded-lg flex flex-col items-center justify-center text-center">
+      <h2 class="text-4xl font-bold mb-6">Thanks!</h2>
+      <div class="w-full max-w-xs">
+        <input class="bg-white text-black w-full px-4 py-2" placeholder="Email address">
+      </div>
+    </div>
+    <div class="bg-gray-200 p-8 rounded-lg">
+      <h3 class="text-lg font-medium mb-4">CCTV & Security</h3>
+      <div class="flex justify-center">
+        <img src="" alt="Security Camera" class="object-contain w-[150px] h-[150px]">
+      </div>
+    </div>
+  </section>
+</main>

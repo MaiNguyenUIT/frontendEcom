@@ -1,0 +1,45 @@
+<div class="group bg-white rounded-xl shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md hover:-translate-y-1"
+     (mouseenter)="isHovered = true" 
+     (mouseleave)="isHovered = false">
+  
+  <div class="relative pt-[100%] bg-gray-50">
+    <!-- Product Image -->
+    <img [src]="product.image || '/assets/placeholder.jpg'" 
+         [alt]="product.name" 
+         class="absolute inset-0 w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105">
+    
+    <!-- Badge -->
+    <div *ngIf="badgeText" class="absolute top-3 left-3">
+      <app-product-badge [type]="badgeType" [text]="badgeText"></app-product-badge>
+    </div>
+    
+    <!-- Discount Percentage -->
+    <div *ngIf="discountPercentage" class="absolute top-3 right-3 bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded">
+      -{{ discountPercentage }}%
+    </div>
+    
+    <!-- Quick Action Buttons -->
+    <div class="absolute bottom-4 inset-x-0 flex justify-center gap-3 opacity-0 transform translate-y-5 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
+      <app-wishlist-button></app-wishlist-button>
+      <app-cart-button></app-cart-button>
+      <app-quick-view-button></app-quick-view-button>
+    </div>
+  </div>
+  
+  <div class="p-4">
+    <!-- Rating -->
+    <div class="flex items-center mb-2">
+      <app-star-rating [rating]="product.rating"></app-star-rating>
+      <span class="text-xs text-gray-500 ml-1">({{ product.reviewCount }})</span>
+    </div>
+    
+    <!-- Product Name -->
+    <h3 class="text-sm font-medium text-gray-800 mb-2 line-clamp-2 h-10">{{ product.name }}</h3>
+    
+    <!-- Price -->
+    <div class="flex items-center gap-2">
+      <span class="text-indigo-600 font-semibold">{{ formattedPrice }}</span>
+      <span *ngIf="formattedOriginalPrice" class="text-gray-400 text-sm line-through">{{ formattedOriginalPrice }}</span>
+    </div>
+  </div>
+</div>
