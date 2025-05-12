@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core"
-import type { RelatedProduct } from "../../models/Product"
+import type { RelatedProduct } from "../../models/entity/Product"
 import { CommonModule } from "@angular/common"
 import { FormsModule } from "@angular/forms"
 import { RouterModule } from "@angular/router"

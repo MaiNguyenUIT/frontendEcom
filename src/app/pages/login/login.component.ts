@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { FormsModule} from '@angular/forms'
-import { LoginCredentials } from '../../models/LoginCredentials';
+import { LoginCredentials } from '../../models/request/LoginCredentials';
 
 
 

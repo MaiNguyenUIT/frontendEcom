@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from "@angular/core"
-import type { SortOption } from "../../models/Product"
+import type { SortOption } from "../../models/entity/Product"
 import { CommonModule } from "@angular/common"
 
 @Component({

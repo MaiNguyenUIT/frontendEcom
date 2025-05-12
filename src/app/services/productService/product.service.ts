@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core"
 import { type Observable, of } from "rxjs"
-import type { Product, Category, SortOption, Review, RelatedProduct } from "../models/Product"
+import type { Product, Category, SortOption, Review, RelatedProduct } from "../../models/entity/Product"
 
 @Injectable({
   providedIn: "root",
