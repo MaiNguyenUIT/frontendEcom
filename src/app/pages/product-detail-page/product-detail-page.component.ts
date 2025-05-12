@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core"
 import { ActivatedRoute, RouterModule } from "@angular/router"
-import { ProductService } from "../../services/product.service"
-import { Product, Review, RelatedProduct } from "../../models/Product"
+import { ProductService } from "../../services/productService/product.service"
+import { Product, Review, RelatedProduct } from "../../models/entity/Product"
 import { CommonModule } from "@angular/common"
 
 @Component({

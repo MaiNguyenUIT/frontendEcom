@@ -1,6 +1,6 @@
 import { Component, type OnInit } from "@angular/core"
-import { ProductService } from "../../services/product.service"
-import type { Product, Category, SortOption } from "../../models/Product"
+import { ProductService } from "../../services/productService/product.service"
+import type { Product, Category, SortOption } from "../../models/entity/Product"
 import { CommonModule } from "@angular/common"
 import { PaginationComponent } from "../../shared/pagination/pagination.component"
 import { CategorySidebarComponent } from "../../shared/category-sidebar/category-sidebar.component"

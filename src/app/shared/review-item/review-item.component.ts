@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core"
-import type { Review } from "../../models/Product"
+import type { Review } from "../../models/entity/Product"
 import { CommonModule } from "@angular/common"
 
 @Component({
