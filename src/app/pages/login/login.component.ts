@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { FormsModule} from '@angular/forms'
 import { LoginCredentials } from '../../models/request/LoginCredentials';
+import { AuthService } from '../../services/authService/auth.service';
 
 
 
@@ -18,9 +19,16 @@ export class LoginComponent {
     username: '',
     password: ''
   };
-  constructor(private router : Router) {}
+  constructor(private router : Router, private authService : AuthService) {}
 
   onLogin() {
-  
+    this.authService.login(this.loginModel).subscribe({
+      next: (user) => {
+        this.router.navigate(['/home']);
+      },
+      error: (err) => {
+        console.error('Login failed', err);
+      }
+    });
   }
 }
