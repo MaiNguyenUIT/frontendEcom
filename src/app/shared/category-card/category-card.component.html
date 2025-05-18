@@ -1,10 +1,10 @@
 <a href="#" class="flex flex-col items-center group">
   <div class="w-24 h-24 rounded-full overflow-hidden bg-gray-100 flex items-center justify-center mb-2">
     <img 
-      [src]="image || '/assets/placeholder.svg'" 
-      [alt]="name"
+      [src]="imageUrl || '/assets/placeholder.svg'" 
+      [alt]="title"
       class="object-contain w-20 h-20 transition-transform group-hover:scale-110"
     >
   </div>
-  <h3 class="text-sm font-medium text-center">{{name}}</h3>
+  <h3 class="text-sm font-medium text-center">{{title}}</h3>
 </a>

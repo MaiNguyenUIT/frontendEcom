@@ -6,6 +6,8 @@ import { CategoryCardComponent } from "../../shared/category-card/category-card.
 import { NewsletterFormComponent } from "../../shared/newsletter-form/newsletter-form.component"
 import { PromoBannerComponent } from "../../shared/promo-banner/promo-banner.component"
 import { ProductCardComponent } from "../../shared/product-card/product-card.component"
+import { ProductService } from "../../services/productService/product.service"
+import type { Product, Category } from "../../models/entity/Product"
 
 @Component({
   selector: "app-home",
@@ -14,6 +16,29 @@ import { ProductCardComponent } from "../../shared/product-card/product-card.com
   imports: [CommonModule, RouterModule, FormsModule, CategoryCardComponent, NewsletterFormComponent, PromoBannerComponent, ProductCardComponent],
 })
 export class HomeComponent {
+  products: Product[] = []
+  categories: Category[] = []
+  
+  constructor(private productService: ProductService) {}
+  
+    ngOnInit(): void {
+      this.loadProducts()
+      this.loadCategories()
+      // this.loadProductCount()
+    }
+  
+    loadProducts(): void {
+      this.productService.getAllProducts().subscribe((products) => {
+        this.products = products
+      })
+    }
+  
+    loadCategories(): void {
+      this.productService.getCategories().subscribe((categories) => {
+        this.categories = categories
+      })
+    }
+
   featuredProducts = [
   {
     id: 1,
@@ -77,15 +102,6 @@ export class HomeComponent {
   },
 ];
 
-
-  categories = [
-    { image: "/assets/placeholder.svg", name: "Arduino" },
-    { image: "/assets/placeholder.svg", name: "Cảm biến" },
-    { image: "/assets/placeholder.svg", name: "Module mạch điện" },
-    { image: "/assets/placeholder.svg", name: "Màn hình LCD" },
-    { image: "/assets/placeholder.svg", name: "Động cơ servo" },
-    { image: "/assets/placeholder.svg", name: "Mạch điều khiển" },
-  ]
 
   hotProducts = [
   {

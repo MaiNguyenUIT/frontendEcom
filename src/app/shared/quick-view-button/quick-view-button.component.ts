@@ -1,10 +1,11 @@
-import { Component } from "@angular/core"
+import { Component, Input } from "@angular/core"
+import { Router } from "@angular/router"
 
 @Component({
   selector: "app-quick-view-button",
   template: `
     <button 
-      (click)="quickView($event)" 
+      (click)="quickView()" 
       class="w-9 h-9 rounded-full bg-white text-gray-700 flex items-center justify-center hover:bg-amber-500 hover:text-white transition-colors shadow-md"
       title="Quick View"
     >
@@ -16,8 +17,9 @@ import { Component } from "@angular/core"
   `,
 })
 export class QuickViewButtonComponent {
-  quickView(event: Event): void {
-    event.stopPropagation()
-    console.log("Quick view")
+  @Input () id!: String
+  constructor(private router : Router) {}
+  quickView(): void {
+    this.router.navigate(['/product-detail', this.id]);
   }
 }

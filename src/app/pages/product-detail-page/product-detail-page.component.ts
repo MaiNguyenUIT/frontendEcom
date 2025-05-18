@@ -1,19 +1,21 @@
 import { Component, OnInit } from "@angular/core"
 import { ActivatedRoute, RouterModule } from "@angular/router"
 import { ProductService } from "../../services/productService/product.service"
-import { Product, Review, RelatedProduct } from "../../models/entity/Product"
+import { Product, RelatedProduct } from "../../models/entity/Product"
 import { CommonModule } from "@angular/common"
+import { FormsModule } from "@angular/forms"
+import { CartService } from "../../services/cartService/cart.service"
+import { CartItemDTO } from "../../models/request/CartItemDTO"
 
 @Component({
   selector: "app-product-detail-page",
   templateUrl: "./product-detail-page.component.html",
   styleUrls: ["./product-detail-page.component.css"],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, FormsModule],
   standalone: true,
 })
 export class ProductDetailPageComponent implements OnInit {
   product: Product | null = null
-  reviews: Review[] = []
   relatedProducts: RelatedProduct[] = []
   selectedImage = 0
   quantity = 1
@@ -22,35 +24,27 @@ export class ProductDetailPageComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
+    private router: RouterModule,
+    private cartService: CartService,
+
   ) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
-      const productId = Number(params.get("id"))
+      const productId = String(params.get("id"))
       this.loadProduct(productId)
-      this.loadReviews(productId)
-      this.loadRelatedProducts(productId)
+
     })
   }
 
-  loadProduct(productId: number): void {
-    this.productService.getProduct(0).subscribe((product) => {
+  loadProduct(productId: String): void {
+    this.productService.getProductById(productId).subscribe((product) => {
+      console.log(product)
       this.product = product
       this.selectedImage = 0
     })
   }
 
-  loadReviews(productId: number): void {
-    this.productService.getReviews(productId).subscribe((reviews) => {
-      this.reviews = reviews
-    })
-  }
-
-  loadRelatedProducts(productId: number): void {
-    this.productService.getRelatedProducts(productId).subscribe((products) => {
-      this.relatedProducts = products
-    })
-  }
 
   selectImage(index: number): void {
     this.selectedImage = index
@@ -60,11 +54,14 @@ export class ProductDetailPageComponent implements OnInit {
     this.quantity = quantity
   }
 
-  addToCart(): void {
-    if (this.product) {
-      console.log(`Added ${this.quantity} of ${this.product.name} to cart`)
-      // Implement actual cart functionality here
-    }
+  addToCart(productId : string): void {
+      const cartItem: CartItemDTO = {
+        productId: productId,
+      }
+      this.cartService.addItemToCart(cartItem).subscribe((response) => {
+        console.log("Added to cart:", response)
+        alert('✅ Sản phẩm đã được thêm vào giỏ hàng!');
+      })
   }
 
   buyNow(): void {
@@ -85,4 +82,17 @@ export class ProductDetailPageComponent implements OnInit {
   getRatingPercentage(rating: number): number {
     return (rating / 5) * 100
   }
+
+  decreaseQuantity() {
+  if (this.quantity > 1) {
+    this.quantity--;
+  }
+
+}
+  increaseQuantity() {
+  // if (this.quantity < this.product.quantity) {
+  //   this.quantity++;
+  // }
+}
+
 }

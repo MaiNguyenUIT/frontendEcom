@@ -1,17 +1,20 @@
-<div class="group bg-white rounded-xl shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md hover:-translate-y-1"
+<div class="group bg-white rounded-xl shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md hover:-translate-y-1 cursor-pointer"
      (mouseenter)="isHovered = true" 
-     (mouseleave)="isHovered = false">
+     (mouseleave)="isHovered = false"
+     (click)="goToProductDetail(product.id)">
+        <!-- thêm dòng này -->
+
   
   <div class="relative pt-[100%] bg-gray-50">
     <!-- Product Image -->
-    <img [src]="product.image || '/assets/placeholder.jpg'" 
+    <img [src]="product.image.at(0)" 
          [alt]="product.name" 
          class="absolute inset-0 w-full h-full object-contain p-4 transition-transform duration-500 group-hover:scale-105">
     
     <!-- Badge -->
-    <div *ngIf="badgeText" class="absolute top-3 left-3">
+    <!-- <div *ngIf="badgeText" class="absolute top-3 left-3">
       <app-product-badge [type]="badgeType" [text]="badgeText"></app-product-badge>
-    </div>
+    </div> -->
     
     <!-- Discount Percentage -->
     <div *ngIf="discountPercentage" class="absolute top-3 right-3 bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded">
@@ -19,18 +22,17 @@
     </div>
     
     <!-- Quick Action Buttons -->
-    <div class="absolute bottom-4 inset-x-0 flex justify-center gap-3 opacity-0 transform translate-y-5 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
+    <div class="absolute bottom-4 inset-x-0 flex justify-center gap-3 opacity-0 transform translate-y-5 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 cursor-pointer">
       <app-wishlist-button></app-wishlist-button>
-      <app-cart-button></app-cart-button>
-      <app-quick-view-button></app-quick-view-button>
+      <app-cart-button [id] = "product.id"></app-cart-button>
+      <app-quick-view-button [id] = "product.id"></app-quick-view-button>
     </div>
   </div>
   
   <div class="p-4">
-    <!-- Rating -->
     <div class="flex items-center mb-2">
       <app-star-rating [rating]="product.rating"></app-star-rating>
-      <span class="text-xs text-gray-500 ml-1">({{ product.reviewCount }})</span>
+      <span class="text-xs text-gray-500 ml-1">({{ product.ratingCount }})</span>
     </div>
     
     <!-- Product Name -->

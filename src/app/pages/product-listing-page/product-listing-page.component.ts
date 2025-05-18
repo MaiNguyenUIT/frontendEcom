@@ -32,12 +32,13 @@ export class ProductListingPageComponent implements OnInit {
     this.loadProducts()
     this.loadCategories()
     this.loadSortOptions()
-    this.loadProductCount()
+    // this.loadProductCount()
   }
 
   loadProducts(): void {
-    this.productService.getProducts().subscribe((products) => {
+    this.productService.getAllProducts().subscribe((products) => {
       this.products = products
+      this.totalProducts = products.length
     })
   }
 
@@ -53,11 +54,11 @@ export class ProductListingPageComponent implements OnInit {
     })
   }
 
-  loadProductCount(): void {
-    this.productService.getProductCount().subscribe((count) => {
-      this.totalProducts = count
-    })
-  }
+  // loadProductCount(): void {
+  //   this.productService.getProductCount().subscribe((count) => {
+  //     this.totalProducts = count
+  //   })
+  // }
 
   onSortChange(sort: string): void {
     this.selectedSort = sort

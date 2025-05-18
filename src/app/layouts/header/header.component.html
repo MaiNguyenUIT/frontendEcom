@@ -36,6 +36,16 @@
           <span>{{ displayName }}</span>
         </a>
 
+        <a routerLink="/order-history" class="flex items-center text-xs hover:text-purple-700 relative cursor-pointer">
+          <i class="h-4 w-4 mr-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" />
+            </svg>
+          </i>
+          <span>Đơn hàng</span>
+        </a>
+
         <a routerLink="/cart" class="flex items-center text-xs hover:text-purple-700 relative cursor-pointer">
           <i class="h-4 w-4 mr-1">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -46,9 +56,10 @@
           </i>
           <span>Giỏ hàng</span>
           <span class="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] rounded-full w-4 h-4 flex items-center justify-center">
-            {{cartCount}}
+            {{cartItemCount}}
           </span>
         </a>
+
         <a routerLink="/wish-list" class="flex items-center text-xs hover:text-purple-700 cursor-pointer">
   <i class="h-4 w-4 mr-1">
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" viewBox="0 0 24 24" fill="none"

@@ -1,26 +1,23 @@
 export interface Product {
-  id: number
+  id: string
   name: string
   price: number
-  originalPrice?: number
-  image: string
+  regularPrice: number
+  image: string[]
+  categoryName: string
+  description : string
+  quantity: number
+  sold: number
+  ownerId: string
   rating: number
-  reviewCount: number
-  category: string
-  badge?: string
-  isHot?: boolean
-  isBestSeller?: boolean
-  isSale?: boolean
-  isNew?: boolean
-  discount?: number
+  ratingCount: number
 }
 
 export interface Category {
   id: number
-  name: string
-  icon: string
-  count?: number
-  selected?: boolean
+  title: string
+  image: string
+  select: boolean
 }
 
 export interface PriceRange {
@@ -31,16 +28,6 @@ export interface PriceRange {
 export interface SortOption {
   value: string
   label: string
-}
-
-export interface Review {
-  id: number
-  productId: number
-  userName: string
-  userInitials: string
-  date: string
-  rating: number
-  comment: string
 }
 
 export interface RelatedProduct {

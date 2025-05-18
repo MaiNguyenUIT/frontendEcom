@@ -1,4 +1,6 @@
-import { Component } from "@angular/core"
+import { Component, Input } from "@angular/core"
+import { CartService } from "../../services/cartService/cart.service"
+import { CartItemDTO } from "../../models/request/CartItemDTO"
 
 @Component({
   selector: "app-cart-button",
@@ -15,8 +17,21 @@ import { Component } from "@angular/core"
   `,
 })
 export class CartButtonComponent {
-  addToCart(event: Event): void {
+  @Input () id!: String
+  constructor(private cartService : CartService) {}
+  
+  addToCart(event : MouseEvent): void {
     event.stopPropagation()
-    console.log("Added to cart")
+    const cartItem: CartItemDTO = {
+        productId: this.id,
+      }
+    this.cartService.addItemToCart(cartItem).subscribe({
+      next: (response) => {
+        console.log("Item added to cart:", response)
+      },
+      error: (error) => {
+        console.error("Error adding item to cart:", error)
+      }
+    })
   }
 }
